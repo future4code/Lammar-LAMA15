@@ -1,0 +1,44 @@
+# ================================================ REGISTER USER ================================================ #
+
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Gustavo",
+	"email": "gus@email.com",
+    "password": "12345678",
+    "role":"ADMIN"
+}
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Walter",
+	"email": "walt@email.com",
+    "password": "87654321",
+    "role":"NORMAL"
+}
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Mike",
+	"email": "mike@email.com",
+    "password": "mike1234",
+    "role":"normal"
+}
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Hank",
+	"email": "hank@email.com",
+    "password": "hank1234",
+    "role":"ADMIN"
+}

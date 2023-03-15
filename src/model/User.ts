@@ -1,3 +1,5 @@
+import { InvalidRole } from "../error/UserErrors"
+
 export class User{
     constructor(
         private id: string,
@@ -47,47 +49,47 @@ export class User{
         this.role = role
     }
 
-    static stringToUserRole(input: string): UserRole{
+    static stringToUserRole(input: string): UserRole {
         switch (input) {
             case "NORMAL":
                 return UserRole.NORMAL
             case "ADMIN":
                 return UserRole.ADMIN
             default:
-            throw new Error("Invalid user role")
+            throw new InvalidRole()
         }
     }
 
-    static toUserModel(user: any): User {
-        return new User(user.id, user.name, user.email, user.password, User.stringToUserRole(user.role))
+    static toUserModel(user: any): User | undefined {
+        return user && new User(user.id, user.name, user.email, user.password, User.stringToUserRole(user.role))
     }
 }
 
-export interface UserInputDTO{
+export interface UserInputDTO {
     email: string,
     password: string,
     name: string,
     role: string
 }
 
-export interface UserOutput{
+export interface UserOutput {
     id: string,
     name: string,
     email: string,
     role: string
 }
 
-export interface LoginInputDTO{
+export interface LoginInputDTO {
     email: string,
     password: string
 }
 
-export enum UserRole{
+export enum UserRole {
     NORMAL = "NORMAL",
     ADMIN = "ADMIN"
 }
 
-export interface AuthenticationData{
+export interface AuthenticationData {
     id: string,
     role?: string
 }
