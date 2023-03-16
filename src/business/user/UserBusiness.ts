@@ -17,7 +17,7 @@ export class UserBusiness {
             const id = this.idGenerator.generate()
             const { name, email, password, role } = input
             
-            if (!name || !email || !password || !role) {
+            if (!name  && !email && !password && !role) {
                 throw new UserErrors.NotBody()
             }
             
