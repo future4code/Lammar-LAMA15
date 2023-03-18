@@ -120,14 +120,14 @@ export class InvalidPasswordLogin extends CustomError {
     }
 }
 
-export class NotUserToken extends CustomError {
-    constructor(){
-        super(422, "Informe o token de usuário através do parâmetro 'Authorization'!" )
-    }
-}
-
 export class UserUnauthorized extends CustomError{ 
     constructor(){
         super(401, "Usuário não autorizado!")
+    }
+}
+
+export class NotUserToken extends CustomError {
+    constructor(){
+        super(422, "Informe o token de usuário através do parâmetro 'Authorization'!" )
     }
 }
