@@ -1,5 +1,5 @@
 import { CustomError } from "../../error/CustomError";
-import { User, UserInputDTO } from "../../model/User";
+import { LoginInputDTO, User, UserInputDTO } from "../../model/User";
 import { IHashManager, IIdGenerator, IAuthenticator } from "../ports";
 import { UserRepository } from "./UserRepository";
 import * as UserErrors from "../../error/UserErrors";
@@ -79,6 +79,44 @@ export class UserBusiness {
             return accessToken 
 
         } catch (error:any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
+
+    public async login( input: LoginInputDTO ) {
+
+        try {    
+            const { email, password } = input
+
+            if ( !email && !password ) {
+                throw new UserErrors.NotBodyLogin() 
+            }
+
+            if(!email.includes("@")) {
+                throw new UserErrors.InvalidEmail()
+            }
+
+            if(password.length < 8) {
+                throw new UserErrors.InvalidPassword()
+            }
+
+            const userOutput = await this.userDatabase.getUserByEmail(email)
+
+            if(!userOutput) {
+              throw new UserErrors.UserNotFound()
+            }
+
+            const compareResult = await this.hashManager.compareHash(password, userOutput.getPassword())
+
+            if(!compareResult) {
+              throw new UserErrors.InvalidPasswordLogin()
+            }
+
+            const accessToken =  this.Authenticator.generateToken({id: userOutput.getId()})
+
+            return accessToken
+
+        } catch (error: any) {
             throw new CustomError(error.statusCode, error.message)
         }
     }
