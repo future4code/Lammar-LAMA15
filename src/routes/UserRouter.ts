@@ -13,3 +13,4 @@ const userBusiness = new UserBusiness(userDatabase, new HashManager(), new IdGen
 const userController = new UserController(userBusiness)
 
 userRouter.post("/signup", (req, res) => userController.signup(req, res))
+userRouter.post("/login", (req, res) => userController.login(req, res))

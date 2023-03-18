@@ -42,3 +42,23 @@ Content-Type: application/json
     "password": "hank1234",
     "role":"ADMIN"
 }
+
+# ================================================ Making Login ================================================ #
+
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"email": "hank@email.com",
+    "password": "hank1234"
+}
+
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"email": "walt@email.com",
+    "password": "87654321"
+}
