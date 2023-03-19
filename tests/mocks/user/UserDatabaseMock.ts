@@ -1,6 +1,6 @@
-import { UserRepository } from "../../src/business/user/UserRepository";
-import { User } from "../../src/model/User";
-import { userMock } from "../mocks/UserMock";
+import { UserRepository } from "../../../src/business/user/UserRepository";
+import { User } from "../../../src/model/User";
+import { userMock } from "./UserMock";
 
 export class UserDatabaseMock implements UserRepository {
     public async insertUser(user: User): Promise<void> {}
