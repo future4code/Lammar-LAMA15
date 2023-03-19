@@ -5,6 +5,7 @@ import { AuthenticatorMock } from "../mocks/AuthenticatorMock";
 import {  HashManagerMock } from "../mocks/HashManagerMock";
 import { IdGeneratorMock } from "../mocks/IdGeneratorMock";
 import { UserDatabaseMock } from "../mocks/UserDatabaseMock";
+import { userMockOutput } from "../mocks/UserMock";
 
 const userBusiness = new UserBusiness(
     new UserDatabaseMock(),
@@ -188,5 +189,29 @@ describe("Endpoint login tests", () => {
 
         expect(result).toBeDefined()
         expect(result).toBe("token")
+    })
+})
+
+describe("Endpoint profile tests", () => {
+
+    test("Test 1: Error that should return when the token is not informed", async () => {
+        expect.assertions(3)
+
+        try {
+            await userBusiness.profile("")
+
+        } catch (err:any) {  
+            expect(err).toBeInstanceOf(CustomError)
+            expect(err.statusCode).toBe(422)
+            expect(err.message).toBe("Informe o token de usuário através do parâmetro 'Authorization'!")   
+        }
+    })
+
+    test("Test 2: authorized user", async () => {
+
+        const result =  await userBusiness.profile("token")
+
+        expect(result).toBeDefined()
+        expect(result).toEqual(userMockOutput)
     })
 })
