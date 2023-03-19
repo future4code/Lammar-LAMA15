@@ -62,3 +62,10 @@ Content-Type: application/json
 	"email": "walt@email.com",
     "password": "87654321"
 }
+
+# ================================================ Get Profile ================================================ #
+
+### 
+GET http://localhost:3003/users/profile 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxYTY1NjE2LTVlYzgtNDMwZS1hZWMxLWM3YzZiMzhiYzJlYSIsImlhdCI6MTY3OTE5Njg3NSwiZXhwIjoxNjc5MjAwNDc1fQ.tvbWPFag7dx_90KlE3IQXSjG5bXSgOa015D0TwENqbE
