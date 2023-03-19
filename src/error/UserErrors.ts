@@ -122,7 +122,7 @@ export class InvalidPasswordLogin extends CustomError {
 
 export class UserUnauthorized extends CustomError{ 
     constructor(){
-        super(401, "Usuário não autorizado!")
+        super(401, "Usuário não autorizado. Token de acesso Inválido!")
     }
 }
 
