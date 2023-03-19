@@ -41,4 +41,17 @@ export class UserController {
             res.status(err.statusCode || 400).send(err.message || err.sqlMessage)
         }
     }
+
+    public async profile( req: Request, res: Response ): Promise<void> {
+        try {
+            const userToken = req.headers.authorization as string
+
+            const user = await this.userBusiness.profile(userToken)
+
+            res.status(200).send({ message: "Usuário autorizado!", user })
+
+        } catch (err: any) {
+            res.status(err.statusCode || 400).send(err.message || err.sqlMessage)
+        }
+    }
 }

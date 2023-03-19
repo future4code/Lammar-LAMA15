@@ -1,5 +1,5 @@
 import { CustomError } from "../../error/CustomError";
-import { LoginInputDTO, User, UserInputDTO } from "../../model/User";
+import { LoginInputDTO, User, UserInputDTO, UserOutput } from "../../model/User";
 import { IHashManager, IIdGenerator, IAuthenticator } from "../ports";
 import { UserRepository } from "./UserRepository";
 import * as UserErrors from "../../error/UserErrors";
@@ -115,6 +115,31 @@ export class UserBusiness {
             const accessToken =  this.Authenticator.generateToken({id: userOutput.getId()})
 
             return accessToken
+
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
+
+    public async profile( userToken: string ) {
+        try {
+
+            if ( !userToken ) {
+               throw new UserErrors.NotUserToken()
+            }
+
+            const payload = this.Authenticator.getTokenData(userToken).id
+
+            const userOutput = await this.userDatabase.getUserById(payload)
+
+            const user: UserOutput = {
+                id: userOutput?.getId(),
+                name: userOutput?.getName(), 
+                email: userOutput?.getEmail(),
+                role: userOutput?.getRole()
+            }
+
+            return user 
 
         } catch (error: any) {
             throw new CustomError(error.statusCode, error.message)

@@ -14,3 +14,4 @@ const userController = new UserController(userBusiness)
 
 userRouter.post("/signup", (req, res) => userController.signup(req, res))
 userRouter.post("/login", (req, res) => userController.login(req, res))
+userRouter.get("/profile", (req, res) => userController.profile(req, res))
