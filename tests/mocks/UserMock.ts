@@ -1,4 +1,4 @@
-import { User, UserRole } from "../../src/model/User";
+import { User, UserOutput, UserRole } from "../../src/model/User";
 
 export const userMock = new User(
     "id",
@@ -7,3 +7,10 @@ export const userMock = new User(
     "12345678",
     UserRole.NORMAL
 )
+
+export const userMockOutput: UserOutput = {
+    id: userMock.getId(),
+    name: userMock.getName(),
+    email: userMock.getEmail(),
+    role: userMock.getRole()
+}
