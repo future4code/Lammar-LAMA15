@@ -68,4 +68,29 @@ Content-Type: application/json
 ### 
 GET http://localhost:3003/users/profile 
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxYTY1NjE2LTVlYzgtNDMwZS1hZWMxLWM3YzZiMzhiYzJlYSIsImlhdCI6MTY3OTE5Njg3NSwiZXhwIjoxNjc5MjAwNDc1fQ.tvbWPFag7dx_90KlE3IQXSjG5bXSgOa015D0TwENqbE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsImlhdCI6MTY3OTIzODYxMiwiZXhwIjoxNjc5MjQyMjEyfQ.xzL_7Wp3LB_Rsieo4gJWXRBRYTmr0Gq8MKrFsdhFCSI
+
+
+# ================================================ REGISTER BAND ================================================ #
+
+### 
+POST http://localhost:3003/bands/register
+Content-Type: application/json
+
+{
+	"name": "Savoir Adore",
+	"musicGenre": "pop-rock",
+    "responsible": "Paul",
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTI1MDMwNSwiZXhwIjoxNjc5MjUzOTA1fQ.z4IzJK2cRfGv4cjKpuXK-m4rLDT5GThGD-5Nt9FsIjw"
+}
+
+### 
+POST http://localhost:3003/bands/register
+Content-Type: application/json
+
+{
+	"name": "Oberhofer",
+	"musicGenre": "Indie pop",
+    "responsible": "Brad",
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTI1MDE0MiwiZXhwIjoxNjc5MjUzNzQyfQ.hQX5lt5puD8KCNXWjVG_kC8YzbszoSfu51xrK3tJqQU"
+}

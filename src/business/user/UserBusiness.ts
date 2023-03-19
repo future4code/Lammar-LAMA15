@@ -112,7 +112,7 @@ export class UserBusiness {
               throw new UserErrors.InvalidPasswordLogin()
             }
 
-            const accessToken =  this.Authenticator.generateToken({id: userOutput.getId()})
+            const accessToken =  this.Authenticator.generateToken({id: userOutput.getId(), role: userOutput.getRole()})
 
             return accessToken
 
