@@ -1,4 +1,4 @@
-import { IHashManager } from "../../src/business/ports";
+import { IHashManager } from "../../../src/business/ports";
 
 export class HashManagerMock implements IHashManager {
     public generateHash = jest.fn( async (plainText: string) => { 

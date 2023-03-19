@@ -1,11 +1,11 @@
 import { UserBusiness } from "../../src/business/user/UserBusiness";
 import { CustomError } from "../../src/error/CustomError";
 import { UserRole } from "../../src/model/User";
-import { AuthenticatorMock } from "../mocks/AuthenticatorMock";
-import {  HashManagerMock } from "../mocks/HashManagerMock";
-import { IdGeneratorMock } from "../mocks/IdGeneratorMock";
-import { UserDatabaseMock } from "../mocks/UserDatabaseMock";
-import { userMockOutput } from "../mocks/UserMock";
+import { AuthenticatorMock } from "../mocks/services/AuthenticatorMock";
+import {  HashManagerMock } from "../mocks/services/HashManagerMock";
+import { IdGeneratorMock } from "../mocks/services/IdGeneratorMock";
+import { UserDatabaseMock } from "../mocks/user/UserDatabaseMock";
+import { userMockOutput } from "../mocks/user/UserMock";
 
 const userBusiness = new UserBusiness(
     new UserDatabaseMock(),
