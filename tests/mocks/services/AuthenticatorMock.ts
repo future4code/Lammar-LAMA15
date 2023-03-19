@@ -7,6 +7,6 @@ export class AuthenticatorMock implements IAuthenticator {
     })
     
     public getTokenData = jest.fn( () => {
-        return { id: "id", role: UserRole.NORMAL }
+        return { id: "id", role: UserRole.ADMIN }
     })
 }
