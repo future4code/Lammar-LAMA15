@@ -24,7 +24,7 @@ export class BandController {
         }
     }
 
-    public async getUserByIdOrName( req: Request, res: Response ): Promise<void> {
+    public async getBandByIdOrName( req: Request, res: Response ): Promise<void> {
         try {
             const idOrName = req.params.idOrName
 
