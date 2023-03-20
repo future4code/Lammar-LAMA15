@@ -23,4 +23,17 @@ export class BandController {
             res.status(err.statusCode || 400).send(err.message || err.sqlMessage)
         }
     }
+
+    public async getUserByIdOrName( req: Request, res: Response ): Promise<void> {
+        try {
+            const idOrName = req.params.idOrName
+
+            const band = await this.bandBusiness.getBandByIdOrName(idOrName)
+
+            res.status(200).send(band)
+
+        } catch (err: any) {
+            res.status(err.statusCode || 400).send(err.message || err.sqlMessage)
+        }
+    }
 }

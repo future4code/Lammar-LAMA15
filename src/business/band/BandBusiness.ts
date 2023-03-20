@@ -68,4 +68,45 @@ export class BandBusiness {
             throw new CustomError(error.statusCode, error.message)
         }
     }
+
+    public async getBandByIdOrName( idOrName: string ) {
+        try {
+
+            if (!idOrName) {
+               throw new BandErrors.NotidOrName()
+            }
+                
+            const bandByID = await this.bandDatabase.getBandById(idOrName)
+
+            if (bandByID) {
+                const band: BandOutput = {
+                    id: bandByID?.getId(),
+                    name: bandByID?.getName().replace("-", " "),
+                    musicGenre: bandByID?.getMusicGenre(),
+                    responsible: bandByID?.getResponsible()
+                }
+
+                return band
+
+            } else if (!bandByID) {
+                const bandByName = await this.bandDatabase.getBandByName(idOrName)
+
+                if (bandByName) {
+                    const band: BandOutput = {
+                        id: bandByName?.getId(),
+                        name: bandByName?.getName().replace("-", " "),
+                        musicGenre: bandByName?.getMusicGenre(),
+                        responsible: bandByName?.getResponsible()
+                    }
+                    
+                    return band
+                } else {
+                    throw new BandErrors.BandNotFound()
+                }
+            } 
+
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
 }

@@ -81,7 +81,7 @@ Content-Type: application/json
 	"name": "Savoir Adore",
 	"musicGenre": "pop-rock",
     "responsible": "Paul",
-    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTI1MDMwNSwiZXhwIjoxNjc5MjUzOTA1fQ.z4IzJK2cRfGv4cjKpuXK-m4rLDT5GThGD-5Nt9FsIjw"
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTMzMzMyOSwiZXhwIjoxNjc5MzM2OTI5fQ.bc6AbjpKXB-IhyMCGuWr33amo2-AeyX3T1qKs2eGSQs"
 }
 
 ### 
@@ -94,3 +94,28 @@ Content-Type: application/json
     "responsible": "Brad",
     "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTI1MDE0MiwiZXhwIjoxNjc5MjUzNzQyfQ.hQX5lt5puD8KCNXWjVG_kC8YzbszoSfu51xrK3tJqQU"
 }
+
+### 
+POST http://localhost:3003/bands/register
+Content-Type: application/json
+
+{
+	"name": "Holy Oysters",
+	"musicGenre": "pop-rock",
+    "responsible": "Darwin",
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTMzMzMyOSwiZXhwIjoxNjc5MzM2OTI5fQ.bc6AbjpKXB-IhyMCGuWr33amo2-AeyX3T1qKs2eGSQs"
+}
+
+# ==========================================  GET BAND BY ID OR NAME ========================================== #
+
+### 
+GET http://localhost:3003/bands/Holy-Oysters
+
+### 
+GET http://localhost:3003/bands/savoir-adore
+
+### 
+GET http://localhost:3003/bands/6c29e51a-808c-46f7-967d-16ca3a89b3df
+
+### 
+GET http://localhost:3003/bands/Oberhofer

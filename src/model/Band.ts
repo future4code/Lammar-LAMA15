@@ -39,7 +39,7 @@ export class Band{
     }
 
     static toBandModel(band: any): Band | undefined {
-        return band && new Band(band.id, band.name, band.musicGenre, band.responsible)
+        return band && new Band(band.id, band.name, band.music_genre, band.responsible)
     }
 }
 

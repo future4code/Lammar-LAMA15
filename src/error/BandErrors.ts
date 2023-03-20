@@ -79,3 +79,15 @@ export class UserUnauthorized extends CustomError{
         super(401, "Usuário não autorizado. Somente Usuário do tipo 'ADMIN' podem registra bandas.")
     }
 }
+
+export class NotidOrName extends CustomError{ 
+    constructor(){
+        super(401, "Por favor insira o 'id' ou 'name' da banda que deseja buscar!")
+    }
+}
+
+export class BandNotFound extends CustomError{ 
+    constructor(){
+        super(404, "Banda não encontrada, por favor verifique o id ou nome informado e tente novamente!")
+    }
+}
