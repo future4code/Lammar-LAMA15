@@ -12,4 +12,4 @@ const bandBusiness = new BandBusiness(bandDatabase, new IdGenerator(), new Authe
 const bandController = new BandController(bandBusiness)
 
 bandRouter.post("/register", (req, res) => bandController.registerBand(req, res))
-bandRouter.get("/:idOrName", (req, res) => bandController.getUserByIdOrName(req, res))
+bandRouter.get("/:idOrName", (req, res) => bandController.getBandByIdOrName(req, res))
