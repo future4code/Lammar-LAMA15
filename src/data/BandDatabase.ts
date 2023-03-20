@@ -1,4 +1,4 @@
-import { BaseDatabase } from "./BaseDatabeas";
+import { BaseDatabase } from "./BaseDatabase";
 import { Band } from "../model/Band";
 import { BandRepository } from "../business/band/BandRepository";
 import { CustomError } from "../error/CustomError";
@@ -13,7 +13,7 @@ export class BandDatabase extends BaseDatabase implements BandRepository {
                 INSERT INTO ${this.tableName} (id, name, music_genre, responsible)
                 VALUES (
                     '${band.getId()}', 
-                    '${band.getName()}', 
+                    '${band.getName().replace(" ", "-")}', 
                     '${band.getMusicGenre()}',
                     '${band.getResponsible()}'
                 )`
@@ -24,10 +24,10 @@ export class BandDatabase extends BaseDatabase implements BandRepository {
         }
     }
 
-    public async getBandByName(name: string): Promise<Band | undefined> {
+    public async getBandByName(name: string ): Promise<Band | undefined> {
         try {
             const result = await BaseDatabase.connection.raw(`
-                SELECT * from ${this.tableName} WHERE name = '${name}'
+                SELECT * from ${this.tableName} WHERE LOWER(name) = '${name.toLowerCase()}'
             `)
 
             return Band.toBandModel(result[0][0])
