@@ -13,7 +13,7 @@ export class BandDatabase extends BaseDatabase implements BandRepository {
                 INSERT INTO ${this.tableName} (id, name, music_genre, responsible)
                 VALUES (
                     '${band.getId()}', 
-                    '${band.getName().replace(" ", "-")}', 
+                    '${band.getName().trim().replace(" ", "-")}', 
                     '${band.getMusicGenre()}',
                     '${band.getResponsible()}'
                 )`
