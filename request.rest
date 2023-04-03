@@ -1,0 +1,121 @@
+# ================================================ REGISTER USER ================================================ #
+
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Gustavo",
+	"email": "gus@email.com",
+    "password": "12345678",
+    "role":"ADMIN"
+}
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Walter",
+	"email": "walt@email.com",
+    "password": "87654321",
+    "role":"NORMAL"
+}
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Mike",
+	"email": "mike@email.com",
+    "password": "mike1234",
+    "role":"normal"
+}
+
+###
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Hank",
+	"email": "hank@email.com",
+    "password": "hank1234",
+    "role":"ADMIN"
+}
+
+# ================================================ MAKING LOGIN ================================================ #
+
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"email": "hank@email.com",
+    "password": "hank1234"
+}
+
+###
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"email": "walt@email.com",
+    "password": "87654321"
+}
+
+# ================================================ GET PROFILE ================================================ #
+
+### 
+GET http://localhost:3003/users/profile 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsImlhdCI6MTY3OTIzODYxMiwiZXhwIjoxNjc5MjQyMjEyfQ.xzL_7Wp3LB_Rsieo4gJWXRBRYTmr0Gq8MKrFsdhFCSI
+
+
+# ================================================ REGISTER BAND ================================================ #
+
+### 
+POST http://localhost:3003/bands/register
+Content-Type: application/json
+
+{
+	"name": "Savoir Adore",
+	"musicGenre": "pop-rock",
+    "responsible": "Paul",
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTMzMzMyOSwiZXhwIjoxNjc5MzM2OTI5fQ.bc6AbjpKXB-IhyMCGuWr33amo2-AeyX3T1qKs2eGSQs"
+}
+
+### 
+POST http://localhost:3003/bands/register
+Content-Type: application/json
+
+{
+	"name": "Oberhofer",
+	"musicGenre": "Indie pop",
+    "responsible": "Brad",
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTI1MDE0MiwiZXhwIjoxNjc5MjUzNzQyfQ.hQX5lt5puD8KCNXWjVG_kC8YzbszoSfu51xrK3tJqQU"
+}
+
+### 
+POST http://localhost:3003/bands/register
+Content-Type: application/json
+
+{
+	"name": "Holy Oysters",
+	"musicGenre": "pop-rock",
+    "responsible": "Darwin",
+    "userToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVmNGQ3MjQ4LWYyMzAtNGY0ZS04N2FjLWExNDZmNGQ0NDViMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTMzMzMyOSwiZXhwIjoxNjc5MzM2OTI5fQ.bc6AbjpKXB-IhyMCGuWr33amo2-AeyX3T1qKs2eGSQs"
+}
+
+# ==========================================  GET BAND BY ID OR NAME ========================================== #
+
+### 
+GET http://localhost:3003/bands/Holy-Oysters
+
+### 
+GET http://localhost:3003/bands/savoir-adore
+
+### 
+GET http://localhost:3003/bands/6c29e51a-808c-46f7-967d-16ca3a89b3df
+
+### 
+GET http://localhost:3003/bands/Oberhofer
